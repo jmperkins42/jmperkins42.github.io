@@ -18,45 +18,40 @@
 </head>
 <body class="bg-dark">
     <div class="d-flex justify-content-center align-items-center vh-100">
-        <form class="card col-12 col-md-8">
+        <form class="card col-12 col-md-10 col-lg-8">
             <div class="card-body">
                 <div class="container text-center">
                     <div class="row align-items-center">
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <h3 id="imgLocationPin" class="bi-geo-alt text-primary"></h3>
-                            <h1 id="txtLocation" class="text-primary">Cookeville</h1>
+                            <h2 id="txtLocation" class="text-primary">Cookeville</h2>
                         </div>
-                        <div class="col-8">
-                            <h2>Current Conditions</h2>
-                            <h1 id="imgCurrWeatherCode" class="text-primary"></h3>
-                            <h1 id="txtCurrWeatherCode" class="text-primary"></h3>
+                        <div class="col-12 col-md-8">
+                            <h3>Current Conditions</h3>
+                            <h1 id="imgCurrWeatherCode" class="text-primary "></h1>
+                            <h1 id="txtCurrWeatherCode" class="text-primary"></h1>
                             <hr />
                             <div class="row align-items-center">
-                                <div class="col-4">
+                                <div class="col-6 col-md-4">
                                     <h3 id="txtCurrTemperature" class="red bi-thermometer" aria-label="Current Temperature"></h3>
-                                    <h3 ></h3>
+                                    <h6 id="txtCurrApparentTemperature" aria-label="Current Apparent Temperature"></h6>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-6 col-md-4">
                                     <h3 id="txtCurrHumidity" class="blue bi-droplet-half" aria-label="Current Humidity"></h3>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-12 col-md-4">
                                     <h3 id="txtCurrWindSpeed" class="bi-wind" aria-label="Current Wind Speed"></h3>
-                                </div>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-4">
-                                    <h6 id="txtCurrApparentTemperature" aria-label="Current Apparent Temperature"></h6>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <footer class="mt-5">
+                        <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
+                    </footer>
                 </div>
             </div>
         </form>
     </div>
-    <footer>
-        <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         const weatherCodes = ['Clear Skies', 'Mainly Clear', 'Partly Cloudy', 'Overcast', 
@@ -83,82 +78,82 @@
             let currWeatherCode = objData.current.weather_code
             if (currWeatherCode == 0){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[0]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-sun'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-sun'
             } else if (currWeatherCode == 1){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[1]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-brightness-low'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-brightness-low'
             } else if (currWeatherCode == 2){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[2]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-sun'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-sun'
             } else if (currWeatherCode == 3){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[3]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-clouds'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-clouds'
             } else if (currWeatherCode == 45){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[4]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-fog'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-fog'
             } else if (currWeatherCode == 48){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[4]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-fog'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-fog'
             } else if (currWeatherCode == 51){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Light ${weatherCodes[5]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-drizzle'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-drizzle'
             } else if (currWeatherCode == 53){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Moderate ${weatherCodes[5]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-drizzle'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-drizzle'
             } else if (currWeatherCode == 55){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Dense ${weatherCodes[5]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-drizzle'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-drizzle'
             } else if (currWeatherCode == 56){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Light ${weatherCodes[6]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow bi-cloud-drizzle'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow bi-cloud-drizzle'
             } else if (currWeatherCode == 57){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Dense ${weatherCodes[6]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow bi-cloud-drizzle'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow bi-cloud-drizzle'
             } else if (currWeatherCode == 61){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Slight ${weatherCodes[7]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-rain'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-rain'
             } else if (currWeatherCode == 63){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Moderate ${weatherCodes[7]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-rain'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-rain'
             } else if (currWeatherCode == 65){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Heavy ${weatherCodes[7]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-rain-heavy'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-rain-heavy'
             } else if (currWeatherCode == 66){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Light ${weatherCodes[8]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow bi-cloud-rain'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow bi-cloud-rain'
             } else if (currWeatherCode == 67){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Heavy ${weatherCodes[8]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow bi-cloud-rain-heavy'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow bi-cloud-rain-heavy'
             } else if (currWeatherCode == 71){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Slight ${weatherCodes[9]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow'
             } else if (currWeatherCode == 73){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Moderate ${weatherCodes[9]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow3'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow3'
             } else if (currWeatherCode == 75){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Heavy ${weatherCodes[9]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow2'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow2'
             } else if (currWeatherCode == 77){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[10]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-snow'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-snow'
             } else if (currWeatherCode == 80){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Slight ${weatherCodes[11]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-rain'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-rain'
             } else if (currWeatherCode == 81){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Moderate ${weatherCodes[11]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-rain'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-rain'
             } else if (currWeatherCode == 82){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Violent ${weatherCodes[11]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-rain-heavy'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-rain-heavy'
             } else if (currWeatherCode == 85){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Slight ${weatherCodes[12]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-snow'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-snow'
             } else if (currWeatherCode == 86){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `Heavy ${weatherCodes[12]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-snow'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-snow'
             } else if (currWeatherCode == 95){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[13]}`
-                document.querySelector('#imgCurrWeatherCode').className = 'bi-cloud-lightning-rain'
+                document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-lightning-rain'
             }
             
             document.querySelector('#txtCurrWindSpeed').innerHTML = ` ${objData.current.wind_speed_10m} mph`
