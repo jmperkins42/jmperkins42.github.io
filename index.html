@@ -26,8 +26,8 @@
                             <h3 id="imgLocationPin" class="bi-geo-alt text-primary"></h3>
                             <h2 id="txtLocation" class="text-primary">Cookeville</h2>
                         </div>
-                        <div class="col-12 col-md-8">
-                            <h3>Current Conditions</h3>
+                        <div class="mt-5 col-12 col-md-8">
+                            <h3 class="mb-3">Current Conditions</h3>
                             <h1 id="imgCurrWeatherCode" class="text-primary "></h1>
                             <h1 id="txtCurrWeatherCode" class="text-primary"></h1>
                             <hr />
@@ -54,10 +54,13 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
+        // array to hold the different weather codes
         const weatherCodes = ['Clear Skies', 'Mainly Clear', 'Partly Cloudy', 'Overcast', 
             'Foggy', 'Drizzle', 'Freezing Drizzle', 'Rain', 'Freezing Rain', 'Snow Fall',
             'Snow Grains', 'Rain Showers', 'Snow Showers', 'Thunderstorm'
         ]
+        // end array to hold weather codes
+
         // fetch data from the api
         fetch('https://api.open-meteo.com/v1/forecast?latitude=36.1628&longitude=-85.5016&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,rain,showers,snowfall,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FChicago')
         .then(objResponse => objResponse.json())
@@ -74,7 +77,7 @@
             
             //document.querySelector('#txtCurrPrecipitation').innerHTML = `${objData.current.precipitation}°`
 
-            // set the weather code text and icon
+            // set the weather code text and corresponding icon
             let currWeatherCode = objData.current.weather_code
             if (currWeatherCode == 0){
                 document.querySelector('#txtCurrWeatherCode').innerHTML = `${weatherCodes[0]}`
@@ -156,6 +159,7 @@
                 document.querySelector('#imgCurrWeatherCode').className += 'bi-cloud-lightning-rain'
             }
             
+            // set the current wind speed
             document.querySelector('#txtCurrWindSpeed').innerHTML = ` ${objData.current.wind_speed_10m} mph`
         })
         
